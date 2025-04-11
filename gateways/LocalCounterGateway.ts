@@ -8,7 +8,7 @@ export class LocalCounterGateway {
         return LocalCounterGateway.instance;
     }
 
-    constructor(private count: number = 0){}
+    constructor(private count: number = 10){}
 
     async getCount(): Promise<number> {
         return this.count;
