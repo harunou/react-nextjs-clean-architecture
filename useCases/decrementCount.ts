@@ -1,7 +1,7 @@
 "use server"
 
-import { LocalCounterGateway } from "@/gateways/LocalCounterGateway";
+import { HybridCounterGateway } from "@/gateways/HybridCounterGateway";
 
 export const decrementCountUseCase = async (value: number = 1): Promise<void> => {
-    await LocalCounterGateway.make().decrementCount(value);
+    await HybridCounterGateway.make().decrementCount(value);
 }
