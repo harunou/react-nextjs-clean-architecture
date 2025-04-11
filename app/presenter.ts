@@ -1,7 +1,8 @@
-"use server"
+"use server";
 
 import { LocalCounterGateway } from "@/gateways/LocalCounterGateway";
+import { Presenter } from "./page.types";
 
-export const getCount = async (): Promise<number> => {
-  return await LocalCounterGateway.make().getCount();
-}
+export const getCount: Presenter.GetCount = async () => {
+  return LocalCounterGateway.make().getCount();
+};
