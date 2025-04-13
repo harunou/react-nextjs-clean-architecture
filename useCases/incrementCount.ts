@@ -1,6 +1,6 @@
 "use server";
 
-import { HybridCounterRepository } from "@/gateways/HybridCounterRepository";
+import { HybridCounterRepository } from "@/gateways/CounterRepository/HybridCounterRepository";
 
 export const incrementCountUseCase = async (
   value: number = 1
