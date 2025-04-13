@@ -9,7 +9,7 @@ export async function Counter() {
         <div className="flex gap-4">
           <button
             className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 active:bg-blue-700 transition cursor-pointer"
-            onClick={addButtonClicked}
+            onClick={addButtonClicked.bind(null, 2)}
           >
             Add
           </button>

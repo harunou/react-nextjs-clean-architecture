@@ -5,10 +5,11 @@ import { incrementCountUseCase } from "@/useCases/incrementCount";
 import { revalidatePath } from "next/cache";
 import { Controller } from "./Counter.types";
 
-export const addButtonClicked: Controller.AddButtonClicked = async () => {
-  await incrementCountUseCase();
+export const addButtonClicked: Controller.AddButtonClicked = async (
+  value: number
+) => {
+  await incrementCountUseCase(value);
   revalidatePath("/");
-  return 'fulfilled'
 };
 
 export const removeButtonClicked: Controller.RemoveButtonClicked = async () => {
