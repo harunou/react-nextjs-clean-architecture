@@ -4,9 +4,9 @@ import { LocalCounterRepository } from "./LocalCounterRepository";
 export class HybridCounterRepository {
   static instance: CounterRepository;
 
-  static make(): CounterRepository {
+  static async make(): Promise<CounterRepository> {
     if (!HybridCounterRepository.instance) {
-      HybridCounterRepository.instance = LocalCounterRepository.make();
+      HybridCounterRepository.instance = await LocalCounterRepository.make();
     }
     return HybridCounterRepository.instance;
   }

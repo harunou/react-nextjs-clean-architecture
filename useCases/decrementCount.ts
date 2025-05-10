@@ -5,6 +5,7 @@ import { HybridCounterRepository } from "@/gateways/CounterRepository/HybridCoun
 export const decrementCountUseCase = async (
   value: number = 1
 ): Promise<void> => {
-  const count = await HybridCounterRepository.make().getCount();
-  await HybridCounterRepository.make().setCount(count - value);
+  const repository = await HybridCounterRepository.make();
+  const count = await repository.getCount();
+  await repository.setCount(count - value);
 };
