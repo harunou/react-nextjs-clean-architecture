@@ -1,5 +1,3 @@
-"use server";
-
 import { HybridCounterRepository } from "@/gateways/CounterRepository/HybridCounterRepository";
 
 export const decrementCountUseCase = async (

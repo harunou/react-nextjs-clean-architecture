@@ -1,13 +1,18 @@
 import { HybridCounterRepository } from "@/gateways/CounterRepository";
-import { incrementCountUseCase } from "@/useCases/incrementCount";
+import { makeIncrementCountUseCase } from "@/useCases/incrementCount";
 
 export async function POST(request: Request) {
   const data = (await request.json()) as { value: number };
-  await incrementCountUseCase(data.value);
-  const repository = await HybridCounterRepository.make();
-  const count = await repository.getCount();
+  const incrementCountUseCase = makeIncrementCountUseCase(presenter);
+  const count = await incrementCountUseCase(data.value);
   return new Response(JSON.stringify({ count }), {
     status: 200,
     headers: { "Content-Type": "application/json" },
   });
 }
+
+const presenter = async () => {
+  const repository = await HybridCounterRepository.make();
+  const count = await repository.getCount();
+  return count;
+};
