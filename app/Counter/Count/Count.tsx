@@ -1,17 +1,22 @@
 import { JSX } from "react";
-import { PresenterInt } from "./Count.types";
+import { Presenter } from "./Count.types";
+import { count } from "./presenter";
 import { xNCountSelector } from "./xNCountSelector";
 
 export async function Count(): Promise<JSX.Element> {
-  const presenter: PresenterInt = {
-    count: await xNCountSelector(),
-    x5Count: await xNCountSelector(5),
+  const presenter: Presenter = {
+    count,
+    x5Count: () => {
+      return xNCountSelector(5);
+    },
   };
   return (
     <>
-      <div className="text-3xl font-bold text-gray-800">Count: {presenter.count}</div>
       <div className="text-3xl font-bold text-gray-800">
-        Count x 5: {presenter.x5Count}
+        Count: {await presenter.count()}
+      </div>
+      <div className="text-3xl font-bold text-gray-800">
+        Count x 5: {await presenter.x5Count()}
       </div>
     </>
   );

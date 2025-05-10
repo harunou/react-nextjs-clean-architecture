@@ -1,4 +1,4 @@
-export interface PresenterInt {
-  count: number;
-  x5Count: number;
+export interface Presenter {
+  count: () => Promise<number>;
+  x5Count: () => Promise<number>;
 }
