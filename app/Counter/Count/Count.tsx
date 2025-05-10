@@ -1,7 +1,8 @@
+import { JSX } from "react";
 import { Presenter } from "./Count.types";
 import { getCount, getX5Count } from "./presenter";
 
-export async function Count() {
+export async function Count(): Promise<JSX.Element> {
   const count: Presenter.Count = await getCount();
   const x5Count = getX5Count();
   return (
