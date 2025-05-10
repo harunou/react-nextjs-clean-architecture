@@ -1,13 +1,14 @@
 import { JSX } from "react";
 import { Presenter } from "./Count.types";
 import { count } from "./presenter";
-import { xNCountSelector } from "./xNCountSelector";
+import { countSelector } from "../../../selectors/countSelector";
 
 export async function Count(): Promise<JSX.Element> {
   const presenter: Presenter = {
     count,
-    x5Count: () => {
-      return xNCountSelector(5);
+    x5Count: async () => {
+      const count = await countSelector();
+      return count * 5;
     },
   };
   return (

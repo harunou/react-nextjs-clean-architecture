@@ -2,8 +2,7 @@
 
 import { HybridCounterRepository } from "@/gateways/CounterRepository/HybridCounterRepository";
 
-export const xNCountSelector = async (x: number = 1) => {
+export const countSelector = async () => {
   const repository = await HybridCounterRepository.make();
-  const count = await repository.getCount();
-  return count * x;
+  return await repository.getCount();
 };

@@ -1,9 +1,10 @@
-import { xNCountSelector } from "./xNCountSelector";
+import { countSelector } from "@/selectors/countSelector";
 
 export const count = async () => {
-  return xNCountSelector();
+  return countSelector();
 };
 
 export const x5Count = async () => {
-  return xNCountSelector(5);
+  const count = await countSelector();
+  return count * 5;
 };

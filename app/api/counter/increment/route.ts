@@ -1,4 +1,4 @@
-import { HybridCounterRepository } from "@/gateways/CounterRepository";
+import { countSelector } from "@/selectors/countSelector";
 import { makeIncrementCountUseCase } from "@/useCases/incrementCount";
 
 export async function POST(request: Request) {
@@ -12,7 +12,6 @@ export async function POST(request: Request) {
 }
 
 const presenter = async () => {
-  const repository = await HybridCounterRepository.make();
-  const count = await repository.getCount();
+  const count = await countSelector();
   return count;
 };
