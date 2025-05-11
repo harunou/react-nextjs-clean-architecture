@@ -1,11 +1,14 @@
+import useCounterState from "../useCounterState";
 import { Presenter } from "./Count.types";
 
 export const usePresenter = (): Presenter => {
-    const count = 0;
-    const x5Count = count * 5;
-
-    return {
-        count,
-        x5Count,
-    };
-}
+  const [count] = useCounterState();
+  return {
+    get count() {
+      return count;
+    },
+    get x5Count() {
+      return count * 5;
+    },
+  };
+};
