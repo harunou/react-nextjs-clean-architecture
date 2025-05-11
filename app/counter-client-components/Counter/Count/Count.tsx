@@ -1,9 +1,9 @@
-import { JSX } from "react";
+import { JSX, use } from "react";
 import { Presenter } from "./Count.types";
 import { count } from "./presenter";
-import { countSelector } from "../../../../selectors/countSelector";
+import { countSelector } from "@/selectors/countSelector";
 
-export async function Count(): Promise<JSX.Element> {
+export function Count(): JSX.Element {
   const presenter: Presenter = {
     count,
     x5Count: async () => {
@@ -14,10 +14,10 @@ export async function Count(): Promise<JSX.Element> {
   return (
     <>
       <div className="text-3xl font-bold text-gray-800">
-        Count: {await presenter.count()}
+        Count: {use(presenter.count())}
       </div>
       <div className="text-3xl font-bold text-gray-800">
-        Count x 5: {await presenter.x5Count()}
+        Count x 5: {use(presenter.x5Count())}
       </div>
     </>
   );

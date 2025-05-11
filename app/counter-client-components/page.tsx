@@ -1,4 +1,4 @@
-import Counter from "./Counter/Counter";
+import { Counter } from "./Counter/Counter";
 import Link from "next/link";
 
 export default function CounterPage() {

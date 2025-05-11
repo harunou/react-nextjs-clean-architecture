@@ -1,9 +1,9 @@
 import { JSX } from "react";
-import { addButtonClicked, removeButtonClicked } from "./controller";
 import { Count } from "./Count/Count";
+import { addButtonClicked, removeButtonClicked } from "./controller";
 import { Controller } from "./Counter.types";
 
-export default async function Counter(): Promise<JSX.Element | null> {
+export function Counter(): JSX.Element | null {
   const controller: Controller = {
     addButtonClicked,
     removeButtonClicked,
