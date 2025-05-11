@@ -10,8 +10,8 @@ export default function HomePage() {
           </Link>
         </li>
         <li>
-          <Link href="/counter-client-components">
-            Counter Client Components
+          <Link href="/counter-client-components-0">
+            Counter Client Components 0
           </Link>
         </li>
       </ul>
