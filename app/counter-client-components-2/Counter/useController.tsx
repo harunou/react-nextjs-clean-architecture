@@ -1,24 +1,31 @@
 "use client";
 
-import { startTransition } from "react";
 import { Controller } from "./Counter.types";
 import { decrement, increment } from "./controller";
 import { useSWRConfig } from "swr";
+
+const DEFAULT_COUNT = 0;
+const INCREMENT_VALUE = 2;
+const DECREMENT_VALUE = 1;
 
 export const useController = (): Controller => {
   const { mutate } = useSWRConfig();
 
   return {
     addButtonClicked: () => {
-      startTransition(async () => {
-        await increment();
-        mutate("/actions/count");
+      mutate("/actions/count", () => increment(INCREMENT_VALUE), {
+        optimisticData: (value: { count: number } | undefined) => {
+          const count = value?.count ?? DEFAULT_COUNT;
+          return { count: count + INCREMENT_VALUE };
+        },
       });
     },
     removeButtonClicked: () => {
-      startTransition(async () => {
-        await decrement();
-        mutate("/actions/count");
+      mutate("/actions/count", () => decrement(DECREMENT_VALUE), {
+        optimisticData: (value: { count: number } | undefined) => {
+          const count = value?.count ?? DEFAULT_COUNT;
+          return { count: count - DECREMENT_VALUE };
+        },
       });
     },
   };

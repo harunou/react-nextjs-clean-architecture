@@ -7,7 +7,7 @@ export function Count(): JSX.Element {
   const presenter = usePresenter();
   return (
     <>
-      <pre className="text-black">{JSON.stringify(presenter, null, " ")}</pre>
+      <pre className="text-black">{JSON.stringify(presenter.status, null, " ")}</pre>
       <div className="text-3xl font-bold text-gray-800">
         Count: {presenter.count}
       </div>

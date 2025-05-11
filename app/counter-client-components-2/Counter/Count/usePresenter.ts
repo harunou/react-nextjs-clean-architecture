@@ -9,13 +9,15 @@ export const usePresenter = (): Presenter => {
     fallbackData: {
       count: DEFAULT_COUNT,
     },
+    keepPreviousData: true,
   });
   return {
-    get isValidating() {
-      return isValidating;
-    },
-    get isLoading() {
-      return isLoading;
+    get status() {
+      return {
+        isLoading,
+        isValidating,
+        isMutating: false,
+      };
     },
     get count() {
       return data.count;
