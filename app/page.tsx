@@ -24,6 +24,11 @@ export default function HomePage() {
             Counter Client Components 1
           </Link>
         </li>
+        <li>
+          <Link href="/counter-client-components-2">
+            Counter Client Components 2
+          </Link>
+        </li>
       </ul>
     </main>
   );
