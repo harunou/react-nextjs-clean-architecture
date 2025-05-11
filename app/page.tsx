@@ -5,8 +5,13 @@ export default function HomePage() {
     <main>
       <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
         <li>
-          <Link href="/counter-server-components">
-            Counter Server Components
+          <Link href="/counter-server-components-0">
+            Counter Server Components 0
+          </Link>
+        </li>
+        <li>
+          <Link href="/counter-server-components-1">
+            Counter Server Components 1
           </Link>
         </li>
         <li>
