@@ -1,5 +1,9 @@
-import Counter from "./Counter/Counter";
+import Link from "next/link";
 
-export default async function Page() {
-  return <Counter />;
+export default function HomePage() {
+  return (
+    <main>
+      <Link href="/counter-server-components">Counter Server Components</Link>
+    </main>
+  );
 }

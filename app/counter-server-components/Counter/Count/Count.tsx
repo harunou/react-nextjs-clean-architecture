@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import { Presenter } from "./Count.types";
 import { count } from "./presenter";
-import { countSelector } from "../../../selectors/countSelector";
+import { countSelector } from "../../../../selectors/countSelector";
 
 export async function Count(): Promise<JSX.Element> {
   const presenter: Presenter = {
